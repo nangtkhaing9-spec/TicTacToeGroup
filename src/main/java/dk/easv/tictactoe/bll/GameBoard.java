@@ -10,6 +10,11 @@ public class GameBoard implements IGameBoard
     private int[][] board;       // 3x3 grid: -1 = Empty, 0 = Player 0, 1 = Player 1
     private int currentPlayer;  // Tracks whose turn it is (0 or 1)
     private int winner;         // Stores the winner's ID, or -1 if no winner yet
+
+    public GameBoard() {
+        newGame();
+    }
+
     /**
      * Returns 0 for player 0, 1 for player 1.
      *
@@ -17,13 +22,13 @@ public class GameBoard implements IGameBoard
      */
     public int getNextPlayer()
     {
-        // test test
-        return 0;
+
+        return currentPlayer; // returns current player
     }
 
     /**
      * Attempts to let the current player play at the given coordinates. It the
-     * attempt is succesfull the current player has ended his turn and it is the
+     * attempt is successfull the current player has ended his turn and it is the
      * next players turn.
      *
      * @param col column to place a marker in.
@@ -82,7 +87,7 @@ public class GameBoard implements IGameBoard
      * Tells us if the game has ended either by draw or by meeting the winning
      * condition.
      *
-     * @return true if the game is over, else it will retun false.
+     * @return true if the game is over, else it will return false.
      */
     public boolean isGameOver()
     {
@@ -106,6 +111,12 @@ public class GameBoard implements IGameBoard
      */
     public void newGame()
     {
-        //TODO Implement this method
+        board = new int[][] {
+                {-1, -1, -1},
+                {-1, -1, -1},
+                {-1, -1, -1}
+        };
+        currentPlayer = 0;
+        winner = -1;
+        }
     }
-}
