@@ -89,10 +89,18 @@ public class GameBoard implements IGameBoard
      *
      * @return true if the game is over, else it will return false.
      */
-    public boolean isGameOver()
-    {
-        //TODO Implement this method
-        return false;
+    public boolean isGameOver() {
+        if (winner !=-1) { // checks for current winner
+            return true;
+        }
+            for (int r = 0; r < 3; r++){ // checks for empty spaces
+                for (int c = 0; c < 3; c++){
+                    if (board[r][c] == -1) {
+                        return false;
+                    }
+                }
+            }
+        return true; // triggers draw after there is no spaces to move
     }
 
     /**
@@ -102,8 +110,7 @@ public class GameBoard implements IGameBoard
      */
     public int getWinner()
     {
-        //TODO Implement this method
-        return -1;
+        return winner;
     }
 
     /**
