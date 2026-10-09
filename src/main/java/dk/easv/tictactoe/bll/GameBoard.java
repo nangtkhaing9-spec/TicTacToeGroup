@@ -46,26 +46,26 @@ public class GameBoard implements IGameBoard
         // 2. Mark selected spot with current player's ID
         board[row][col] = currentPlayer;
 
-        // 3. Check all 3 Horizontal Rows for 3-in-a-row
+        // 3. Check all 3 Rows 
         for (int r = 0; r < 3; r++) {
             if (board[r][0] != -1 && board[r][0] == board[r][1] && board[r][1] == board[r][2]) {
                 winner = board[r][0];
             }
         }
 
-        // 4. Check all 3 Vertical Columns for 3-in-a-row
+        // 4. Check all 3 Columns 
         for (int c = 0; c < 3; c++) {
             if (board[0][c] != -1 && board[0][c] == board[1][c] && board[1][c] == board[2][c]) {
                 winner = board[0][c];
             }
         }
 
-        // 5. Check Main Diagonal (top-left to bottom-right)
+        // 5. Check Diagonal (top-left to bottom-right)
         if (board[0][0] != -1 && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
             winner = board[0][0];
         }
 
-        // 6. Check Anti-Diagonal (top-right to bottom-left)
+        // 6. Check Diagonal (top-right to bottom-left)
         if (board[0][2] != -1 && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
             winner = board[0][2];
         }
